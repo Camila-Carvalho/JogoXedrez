@@ -8,6 +8,7 @@ namespace xadrez
         public Tabuleiro tab { get; private set; }//para uma partida de xadrez é necessário o tabuleiro (que ja possui as peças)
         private int turno;//necessário o turno
         private Cor jogadorAtual;//necessário saber o jogador atual
+        public bool terminada { get; private set; }
 
         //construtor com parametros
         public PartidaDeXadrez()
@@ -15,6 +16,7 @@ namespace xadrez
             tab = new Tabuleiro(8, 8);//aqui já está instanciando o tabuleiro e informando o tamanho dele
             turno = 1; //aqui que inicia no primeiro turno
             jogadorAtual = Cor.Branca; //todos os jogos de xadrez inicia com a peça branca
+            terminada = false;
             colocarPecas();
         }
 
