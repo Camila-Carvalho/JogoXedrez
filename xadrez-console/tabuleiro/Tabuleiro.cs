@@ -21,5 +21,12 @@ namespace tabuleiro
         {
             return pecas[linha, coluna];
         }
+        //metodo pra inserir a peça na posição
+        public void colocarPeca(Peca p, Posicao pos)//passando o parametro peça e posição da peça
+        {
+            pecas[pos.linha, pos.coluna] = p; //informando que a matriz pecas vai receber aquela "variavel" p na posição informada pelo usuário
+            p.posicao = pos; //a "variável" p vai receber como posição a matriz(linha e coluna) indicada pelo usuario
+        }
+
     }
 }
