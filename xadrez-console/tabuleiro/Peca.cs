@@ -20,6 +20,11 @@ namespace tabuleiro
         {
             qteMovimentos++;
         }
+
+        public void decrementarQteMovimentos()
+        {
+            qteMovimentos--;
+        }
         //metodo que verifica se existe movimentos possíveis para determinada peça
         public bool existeMovimentosPossiveis()
         {
