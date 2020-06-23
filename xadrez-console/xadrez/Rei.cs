@@ -1,13 +1,13 @@
 ﻿using System;
 using tabuleiro;
+
 namespace xadrez
 {
     class Rei : Peca
     {
-        public Rei (Tabuleiro tabuleiro, Cor cor) : base (tabuleiro, cor)
+        public Rei(Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor)
         {
         }
-
         public override string ToString()
         {
             return "R";
@@ -16,13 +16,13 @@ namespace xadrez
         private bool podeMover(Posicao pos)
         {
             Peca p = tabuleiro.peca(pos);
-            return p == null || p.cor != this.cor;
+            return p == null || p.cor != cor;
         }
 
         //implementação dos movimentos possíveis
         public override bool[,] movimentosPossiveis()
         {
-            bool[,] mat = new bool[tabuleiro.linhas,tabuleiro.colunas];//cria uma nova matriz para apresentar as posições possiveis
+            bool[,] mat = new bool[tabuleiro.linhas, tabuleiro.colunas];//cria uma nova matriz para apresentar as posições possiveis
             Posicao pos = new Posicao(0, 0); //aqui é somente para instanciar e iniciar com algo para os testes
             //acima, norte
             pos.definirValores(posicao.linha - 1, pos.coluna);//aqui é pra pegar a posição da peça de acordo com a função definir valores da classe posiçao
@@ -72,6 +72,7 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
             }
+            return mat;
         }
 
     }

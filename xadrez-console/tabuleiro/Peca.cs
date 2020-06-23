@@ -20,7 +20,29 @@ namespace tabuleiro
         {
             qteMovimentos++;
         }
+        //metodo que verifica se existe movimentos possíveis para determinada peça
+        public bool existeMovimentosPossiveis()
+        {
+            bool[,] mat = movimentosPossiveis();
+            for (int i = 0; i < tabuleiro.linhas; i++)
+            {
+                for (int j = 0; j < tabuleiro.colunas; j++)
+                {
+                    if (mat[i,j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
+        public bool podeMoverPara(Posicao pos)
+        {
+            return movimentosPossiveis()[pos.linha, pos.coluna];
+        }
+
+        //metodo que verifica os movimentos que determinada peça pode fazer
         public abstract bool[,] movimentosPossiveis(); //é abstrato porque cada peça possui um tipo de movimento, necessário implementar em cada peça
 
     }
